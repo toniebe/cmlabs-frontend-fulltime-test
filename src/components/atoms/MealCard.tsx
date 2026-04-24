@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import Image from "next/image";
+import TiltedCard from "./TiltedCard";
 
 interface MealCardProps {
   id: string;
@@ -12,20 +14,29 @@ export default function MealCard({ id, name, thumbnail, ingredient }: MealCardPr
   return (
     <Link
       href={`/ingredients/${encodeURIComponent(ingredient)}/${id}`}
-      className="flex flex-col rounded-xl overflow-hidden border border-gray-200 hover:shadow-md hover:border-gray-400 transition-all bg-white group"
+      className="block"
     >
-      <div className="relative w-full aspect-square overflow-hidden bg-gray-100">
-        <Image
-          src={thumbnail}
-          alt={name}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-        />
-      </div>
-      <div className="p-3">
-        <p className="text-sm font-medium text-gray-800 line-clamp-2">{name}</p>
-      </div>
+      <TiltedCard
+        imageSrc={thumbnail}
+        altText={name}
+        captionText={name}
+        containerHeight="240px"
+        containerWidth="100%"
+        imageHeight="240px"
+        imageWidth="100%"
+        rotateAmplitude={12}
+        scaleOnHover={1.05}
+        showMobileWarning={false}
+        showTooltip={true}
+        displayOverlayContent={true}
+        overlayContent={
+          <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-linear-to-t from-black/70 to-transparent rounded-b-[15px]">
+            <p className="text-white text-xs font-semibold line-clamp-2 leading-tight">
+              {name}
+            </p>
+          </div>
+        }
+      />
     </Link>
   );
 }
