@@ -1,0 +1,89 @@
+/* ─── Grid layout (used by BentoCardGrid) ─────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* ─── Base card ────────────────────────────────────────────────────────────── */
+.magic-bento-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ─── Border glow (driven by --glow-* CSS vars set via JS) ───────────────── */
+.magic-bento-card--border-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    var(--glow-radius, 300px) circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(var(--glow-color, 132, 0, 255), var(--glow-intensity, 0)),
+    transparent 60%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ─── Text auto-hide modifier ─────────────────────────────────────────────── */
+.magic-bento-card--text-autohide .magic-bento-card__description {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.magic-bento-card:hover .magic-bento-card__description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Card content elements ───────────────────────────────────────────────── */
+.magic-bento-card__header {
+  margin-bottom: 0.5rem;
+}
+
+.magic-bento-card__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+.magic-bento-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.magic-bento-card__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.25rem;
+  line-height: 1.3;
+}
+
+.magic-bento-card__description {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── Particle container base ─────────────────────────────────────────────── */
+.particle-container {
+  position: relative;
+  overflow: hidden;
+}
