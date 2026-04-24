@@ -57,7 +57,6 @@ async function request<TResponse, TBody = unknown>(
       };
     }
 
-    // Handle 204 No Content
     if (res.status === 204) {
       return { data: null, error: null, status: 204 };
     }
