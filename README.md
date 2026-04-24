@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mealapp
+
+A meal discovery web app that lets you find recipes based on ingredients you already have at home. Start from the **Meal Pantry** — search for an ingredient, browse matching meals, and dive into full recipe details including an ingredients checklist, step-by-step instructions, and a video tutorial.
+
+Built with [Next.js](https://nextjs.org) App Router and powered by the [TheMealDB](https://www.themealdb.com) public API.
+
+**Live demo:** [https://cmlab-mealapps.netlify.app](https://cmlab-mealapps.netlify.app)
+
+---
+
+## Author
+
+**Ahmad Fathoni Zumaro** — code name **toniebe**
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone git@github.com:toniebe/cmlabs-frontend-fulltime-test.git
+cd cmlabs-frontend-fulltime-test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Create the environment file
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env` file in the project root:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_API_URL=https://www.themealdb.com/api/json/v1/1
+```
 
-## Learn More
+### 3. Install dependencies
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+yarn install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Run the development server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+yarn dev
+```
 
-## Deploy on Vercel
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Stack & Credits
+
+| Layer | Library |
+|---|---|
+| Framework | [Next.js 16](https://nextjs.org) |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com) |
+| UI Components | [Flowbite](https://flowbite.com) |
+| Animations | [ReactBits](https://reactbits.dev) |
+| Motion | [Motion (Framer)](https://motion.dev) |
+| GSAP | [GSAP](https://gsap.com) |
+| API | [TheMealDB](https://www.themealdb.com/api.php) |
